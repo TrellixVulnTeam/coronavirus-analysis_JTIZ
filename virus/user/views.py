@@ -6,6 +6,10 @@ from .models import User
 # Create your views here.
 
 
+def login(request):
+    return render(request, 'login.html')
+
+
 def register(request):
     if request.method == 'GET':
         return render(request, 'register.html')

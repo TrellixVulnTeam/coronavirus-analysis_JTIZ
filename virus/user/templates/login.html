@@ -20,18 +20,18 @@
   <title>Agency - Start Bootstrap Theme</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
-  <link href="/static/agency.min.css" rel="stylesheet">
-
+  <link href="/static/css/agency.min.css" rel="stylesheet">
+{% comment %} 
 </head>
 <header class="masthead">
   <div class="container">
@@ -42,43 +42,50 @@
     </div>
   </div>
 </header>
+</head>  {% endcomment %}
+
 
 <body>
+<section class="page-section" id="contact">
     <div class="container">
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <h1>회원가입</h1>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Welcome</h2>
+            <h3 class="section-subheading text-muted">로그인</h3>
             </div>
         </div>
-        <div class="row mt-5">
-            <div class="col-12">
+        <div class="row">
+            <div class="col-lg-12">
                 {{ error }}
             </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-12">
-                <form method="POST" action=".">
+        </div> 
+        <div class="row">
+            <div class="col-lg-12">
+                <form method="POST" action="." id="contactForm" name="sentMessage" novalidate="novalidate">
                 {% csrf_token %}
-                    <div class="form-group">
-                        <label for="username">사용자 이름</label>
-                        <input type="text" class="form-control" id="username" placeholder="사용자 이름" name='username'>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="username">사용자 이메일</label>
+                            <input type="email" class="form-control" id="useremail" placeholder="사용자 이메일" name='useremail'>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">비밀번호</label>
+                            <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                        <button type="submit" class="btn btn-primary btn-xl text-uppercase">로그인</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="username">사용자 이메일</label>
-                        <input type="email" class="form-control" id="useremail" placeholder="사용자 이메일" name='useremail'>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">비밀번호</label>
-                        <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="re-password">비밀번호 확인</label>
-                        <input type="password" class="form-control" id="re-password" placeholder="비밀번호 확인" name="re-password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">등록</button>
+                </div>
                 </form>
             </div>
         </div>
     </div>
+  </div>
+</section>
 </body>
 </html>
