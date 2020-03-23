@@ -1,101 +1,50 @@
-<html>
+{% extends 'base.html' %}
 
- {% comment %} <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
-    <link rel="stylesheet" href="/static/agency.min.css" />
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</head>  {% endcomment %}
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Agency - Start Bootstrap Theme</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
-  <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-  <!-- Custom styles for this template -->
-  <link href="/static/css/agency.min.css" rel="stylesheet">
-{% comment %} 
-</head>
-<header class="masthead">
-  <div class="container">
-    <div class="intro-text">
-      <div class="intro-lead-in">Welcome To Our Studio!</div>
-      <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
-      <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+{% block contents %}
+<div class="row">
+    <div class="col-lg-12 text-center">
+    <h2 class="section-heading text-uppercase">Welcome</h2>
+    <h3 class="section-subheading text-muted">회원가입</h3>
     </div>
-  </div>
-</header>
-</head>  {% endcomment %}
-
-
-<body>
-<section class="page-section" id="contact">
-    <div class="container">
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        {{ error }}
+    </div>
+</div> 
+<div class="row">
+    <div class="col-lg-12">
+        <form method="POST" action="." id="contactForm" name="sentMessage" novalidate="novalidate">
+        {% csrf_token %}
         <div class="row">
-            <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Welcome</h2>
-            <h3 class="section-subheading text-muted">회원가입</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                {{ error }}
-            </div>
-        </div> 
-        <div class="row">
-            <div class="col-lg-12">
-                <form method="POST" action="." id="contactForm" name="sentMessage" novalidate="novalidate">
-                {% csrf_token %}
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="username" class="intro-lead-in">사용자 아이디</label>
-                            <input type="text" class="form-control" id="username" placeholder="사용자 아이디" name='username'>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="username">사용자 이메일</label>
-                            <input type="email" class="form-control" id="useremail" placeholder="사용자 이메일" name='useremail'>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">비밀번호</label>
-                            <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="re-password">비밀번호 확인</label>
-                            <input type="password" class="form-control" id="re-password" placeholder="비밀번호 확인" name="re-password">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="col-lg-12 text-center">
-                        <button type="submit" class="btn btn-primary btn-xl text-uppercase">등록</button>
-                        </div>
-                    </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="username" class="intro-lead-in">사용자 아이디</label>
+                    <input type="text" class="form-control" id="username" placeholder="사용자 아이디" name='username'>
+                    <p class="help-block text-danger"></p>
                 </div>
-                </form>
+                <div class="form-group">
+                    <label for="username">사용자 이메일</label>
+                    <input type="email" class="form-control" id="useremail" placeholder="사용자 이메일" name='useremail'>
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                    <label for="re-password">비밀번호 확인</label>
+                    <input type="password" class="form-control" id="re-password" placeholder="비밀번호 확인" name="re-password">
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                <button type="submit" class="btn btn-primary btn-xl text-uppercase">등록</button>
+                </div>
             </div>
         </div>
+        </form>
     </div>
-  </div>
-</section>
-</body>
-</html>
+</div>
+ {% endblock %}
