@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<div class="row mt-5">
+    <div class="col-12">
+        <form method="POST" action="." id="contactForm" name="sentMessage" novalidate="novalidate">
+       
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" class="form-control" id="title" value="{{ board.title }}" readonly />
+                    <label for="contents">내용</label>
+                    <textarea name="form-control" readonly>{{ board.contents }}</textarea>
+                <div>
+                <span style="color: red">{{ field.errors }}</span>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-primary">돌아가기</button>
+    </div>
+</div>
+{% endblock %}
