@@ -5,28 +5,29 @@
 <div class="row mt-5">
     <div class="col-12">
         <form method="POST" action="." id="contactForm" name="sentMessage" novalidate="novalidate">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-md-12">
-                {% for field in form %}
-                <div class="form-group">
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    {{ field.field.widget.name }}
-                    {% ifequal field.name 'contents' %}
-                    <textarea name="{{ field.name }}" placeholder="{{ field.label }}"></textarea>
-                    {% else %}
-                    <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{ field.label_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}" />
-                    {% endifequal %}
-                <div>
-                {% if field.errors %}
-                <span style="color: red">{{ field.errors }}</span>
-                {% endif %}
-                {% endfor %}
-                <div class="clearfix"></div>
-                <div class="col-lg-12 text-center">
-                </div>
-            </div>
-        </div>
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field.field.widget.name }}
+                        {% ifequal field.name 'contents' %}
+                        <textarea name="{{ field.name }}" placeholder="{{ field.label }}"></textarea>
+                        {% else %}
+                        <input type="{{ field.field.widget.input_type }}" class="form-control"
+                            id="{{ field.label_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}" />
+                        {% endifequal %}
+                        <div>
+                            {% if field.errors %}
+                            <span style="color: red">{{ field.errors }}</span>
+                            {% endif %}
+                            {% endfor %}
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                            </div>
+                        </div>
+                    </div>
         </form>
     </div>
 </div>
